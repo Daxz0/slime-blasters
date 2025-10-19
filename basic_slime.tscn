@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://vlvyu80xwpck"]
+[gd_scene load_steps=4 format=3 uid="uid://vlvyu80xwpck"]
 
+[ext_resource type="Script" uid="uid://c2owiuw7re8jn" path="res://basic_slime.gd" id="1_1uarl"]
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="1_ywhno"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1uarl"]
 radius = 54.00926
 
 [node name="BasicSlime" type="CharacterBody2D"]
+script = ExtResource("1_1uarl")
 
 [node name="Slime" parent="." instance=ExtResource("1_ywhno")]
 

@@ -1,16 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3u84076due2"]
+[gd_scene load_steps=4 format=3 uid="uid://b3u84076due2"]
 
 [ext_resource type="PackedScene" uid="uid://b0xfsf20ygw2w" path="res://player.tscn" id="1_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://c0gpy0pye4jr6" path="res://tree.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://vlvyu80xwpck" path="res://basic_slime.tscn" id="3_feb5d"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -35.0
-offset_top = -31.0
-offset_right = 1935.0
-offset_bottom = 1113.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -109.0
+offset_top = 12.0
+offset_right = 1861.0
+offset_bottom = 1156.0
 
 [node name="Player" parent="." instance=ExtResource("1_e2o6t")]
 position = Vector2(855, 634)
@@ -29,3 +33,12 @@ position = Vector2(1171, 623)
 
 [node name="Tree5" parent="." instance=ExtResource("2_feb5d")]
 position = Vector2(1285, 149)
+
+[node name="BasicSlime" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(383, 496)
+
+[node name="BasicSlime2" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(272, 610)
+
+[node name="BasicSlime3" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(837, 327)

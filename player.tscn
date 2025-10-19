@@ -9,6 +9,8 @@ radius = 27.0
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="HappyBoo" parent="." instance=ExtResource("1_4flbx")]
 script = null
 

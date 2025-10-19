@@ -11,8 +11,8 @@ position = Vector2(-1, -75)
 
 [node name="GroundShadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.36078432)
-position = Vector2(1, 70)
-scale = Vector2(0.77380955, 0.44230768)
+position = Vector2(1, 60.75)
+scale = Vector2(0.77380955, 0.7980769)
 texture = ExtResource("1_nnvrw")
 
 [node name="PineTree" type="Sprite2D" parent="."]

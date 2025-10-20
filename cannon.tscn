@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://odskt1tgw0pm"]
+
+[node name="Cannon" type="Area2D"]

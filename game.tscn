@@ -1,44 +1,159 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3u84076due2"]
+[gd_scene load_steps=7 format=3 uid="uid://b3u84076due2"]
 
 [ext_resource type="PackedScene" uid="uid://b0xfsf20ygw2w" path="res://player.tscn" id="1_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://c0gpy0pye4jr6" path="res://tree.tscn" id="2_feb5d"]
-[ext_resource type="PackedScene" uid="uid://vlvyu80xwpck" path="res://basic_slime.tscn" id="3_feb5d"]
+[ext_resource type="Script" uid="uid://cd0nr31bvtbx7" path="res://game.gd" id="1_feb5d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2o6t"]
+bg_color = Color(0, 0, 0, 0.79607844)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feb5d"]
+bg_color = Color(0.6666667, 1, 0, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_fc0e3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -220, -103, 0, 0, 0, 0, 1999, -88, 0, 0, 0, 0, 1996, 1227, 0, 0, 0, 0, -217, 1234, 0, 0, 0, 0, -217, -110)
+}
+point_count = 5
+
+[sub_resource type="FontFile" id="FontFile_e2o6t"]
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_feb5d")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Background" type="CanvasLayer" parent="."]
 layer = -30
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = -109.0
-offset_top = 12.0
-offset_right = 1861.0
-offset_bottom = 1156.0
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="XPBar" type="ProgressBar" parent="Background"]
+unique_name_in_owner = true
+z_index = 50
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.0
+offset_right = 212.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_e2o6t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_feb5d")
+show_percentage = false
+
+[node name="Label" type="Label" parent="Background/XPBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Lv.0"
 
 [node name="Player" parent="." instance=ExtResource("1_e2o6t")]
-position = Vector2(855, 634)
+position = Vector2(973, 544)
 
-[node name="Tree" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(161, 138)
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-855, -634)
+curve = SubResource("Curve2D_fc0e3")
 
-[node name="Tree2" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(692, 371)
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-220, -103)
+rotation = 0.0067596985
 
-[node name="Tree3" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(597, 609)
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
 
-[node name="Tree4" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(1171, 623)
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
 
-[node name="Tree5" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(1285, 149)
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5254902)
 
-[node name="BasicSlime" parent="." instance=ExtResource("3_feb5d")]
-position = Vector2(383, 496)
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -11.5
+offset_right = 43.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 150
+text = "Game Over"
 
-[node name="BasicSlime2" parent="." instance=ExtResource("3_feb5d")]
-position = Vector2(272, 610)
+[node name="GameStart" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 
-[node name="BasicSlime3" parent="." instance=ExtResource("3_feb5d")]
-position = Vector2(837, 327)
+[node name="ColorRect" type="ColorRect" parent="GameStart"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.7019608, 1, 1)
+
+[node name="Label" type="Label" parent="GameStart/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -303.0
+offset_top = -267.0
+offset_right = 303.0
+offset_bottom = -133.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_e2o6t")
+theme_override_font_sizes/font_size = 100
+text = "Slime Blasters"
+
+[node name="Button" type="Button" parent="GameStart/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = -44.5
+offset_right = 175.5
+offset_bottom = 44.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Start"
+
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="GameStart/ColorRect/Button" to="." method="_on_button_pressed"]

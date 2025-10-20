@@ -20,4 +20,4 @@ func _on_body_entered(body: Node2D) -> void:
 	queue_free()
 
 	if body.has_method("take_damage"):
-		body.take_damage(10)
+		body.take_damage(1000)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3u84076due2"]
+[gd_scene load_steps=8 format=3 uid="uid://b3u84076due2"]
 
 [ext_resource type="PackedScene" uid="uid://b0xfsf20ygw2w" path="res://player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://cd0nr31bvtbx7" path="res://game.gd" id="1_feb5d"]
+[ext_resource type="PackedScene" uid="uid://bsds7cqkk1ybg" path="res://menu_slime.tscn" id="3_feb5d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2o6t"]
 bg_color = Color(0, 0, 0, 0.79607844)
@@ -153,6 +154,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "Start"
+
+[node name="MenuSlime" parent="GameStart" instance=ExtResource("3_feb5d")]
+position = Vector2(531, 526)
+
+[node name="MenuSlime2" parent="GameStart" instance=ExtResource("3_feb5d")]
+position = Vector2(1559, 568)
+
+[node name="MenuSlime3" parent="GameStart" instance=ExtResource("3_feb5d")]
+position = Vector2(1035, 887)
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

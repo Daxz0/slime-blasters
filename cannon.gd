@@ -1,6 +1,6 @@
 extends Area2D
 
-
+@export var BULLET = preload("res://cannonball.tscn")
 
 func _physics_process(delta: float) -> void:
 	var enemies = get_overlapping_bodies()
@@ -11,7 +11,6 @@ func _physics_process(delta: float) -> void:
 
 
 func shoot():
-	const BULLET = preload("res://cannonball.tscn")
 
 	var new_bullet = BULLET.instantiate()
 

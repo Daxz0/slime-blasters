@@ -1,6 +1,6 @@
 extends Area2D
-const SPEED = 2500
-
+@export var SPEED = 2500
+@onready var player = get_node("/root/Game/Player")
 
 var lifetime = 0
 func _physics_process(delta: float) -> void:
@@ -20,4 +20,4 @@ func _on_body_entered(body: Node2D) -> void:
 	queue_free()
 
 	if body.has_method("take_damage"):
-		body.take_damage(10)
+		body.take_damage(10 * player.damageMul)

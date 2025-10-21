@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-const SPEED = 600
+@export var SPEED = 600
 
 signal health_depleted
 var health = 100.0
 var xp = 0.0
 var level = 0
 
+
+@export var damageMul = 1
 @onready var GAME = get_node("/root/Game")
 
 func _physics_process(delta: float) -> void:
@@ -53,5 +55,9 @@ func _on_gain_xp(value) -> void:
 		xp-=100
 		level +=1
 		%XPBar.get_node("Label").text = "Lvl.%d" % level
+		damageMul+=0.1
+
+		GAME.weapon.BULLET.SPEED *= 1.1
+
 	%XPBar.value = xp
  

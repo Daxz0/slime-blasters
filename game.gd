@@ -1,7 +1,6 @@
 extends Node2D
 
-# var weapon = preload("res://gun.tscn").instantiate()
-var weapon = preload("res://cannon.tscn").instantiate()
+@export var weapon = preload("res://gun.tscn").instantiate()
 
 func _on_ready():
 	get_tree().paused = true
@@ -12,7 +11,7 @@ func spawn_mob():
 
 	var mob_scenes = [
 		"res://fast_slime.tscn"
-		# "res://basic_slime.tscn"
+		"res://basic_slime.tscn"
 	]
 
 

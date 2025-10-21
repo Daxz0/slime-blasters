@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbqrxkg3ecohx"]
+
+[ext_resource type="Texture2D" uid="uid://c4k2syb1nrxve" path="res://weapons/rifle/rifle_shot.png" id="1_hm58t"]
+[ext_resource type="Script" uid="uid://bwtca2utqmqhe" path="res://rifle_shot.gd" id="1_mm2sk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hm58t"]
+radius = 9.749998
+
+[node name="RifleShot" type="Area2D"]
+scale = Vector2(1.6, 1.6)
+script = ExtResource("1_mm2sk")
+
+[node name="RifleShot" type="Sprite2D" parent="."]
+texture = ExtResource("1_hm58t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, 0)
+shape = SubResource("CircleShape2D_hm58t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

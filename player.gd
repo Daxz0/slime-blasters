@@ -52,3 +52,4 @@ func _on_gain_xp(value) -> void:
 		level +=1
 		%XPBar.get_node("Label").text = "Lvl.%d" % level
 	%XPBar.value = xp
+ 

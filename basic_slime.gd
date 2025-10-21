@@ -8,7 +8,7 @@ func _ready() -> void:
 	$Slime/AnimationPlayer.play("walk")
 
 const SPEED = 300.0
-var health = 100
+var health = 50
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)

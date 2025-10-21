@@ -47,7 +47,9 @@ grow_vertical = 2
 
 [node name="XPBar" type="ProgressBar" parent="Background"]
 unique_name_in_owner = true
+top_level = true
 z_index = 50
+z_as_relative = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -298,4 +300,6 @@ text = "Return"
 [connection signal="pressed" from="GameStart/ColorRect/SelectButton" to="." method="_on_select_button_pressed"]
 [connection signal="pressed" from="WeaponSelector/PistolSelect" to="." method="_on_pistol_select_pressed"]
 [connection signal="pressed" from="WeaponSelector/CannonSelect" to="." method="_on_cannon_select_pressed"]
+[connection signal="pressed" from="WeaponSelector/RevolverSelect" to="." method="_on_revolver_select_pressed"]
+[connection signal="pressed" from="WeaponSelector/RifleSelect" to="." method="_on_rifle_select_pressed"]
 [connection signal="pressed" from="WeaponSelector/Return" to="." method="_on_return_pressed"]

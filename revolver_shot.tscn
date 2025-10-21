@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://7yj0l001aekd"]
+
+[ext_resource type="Texture2D" uid="uid://bp6l7nli4pxow" path="res://weapons/revolver/revolver_shot.png" id="1_0fplf"]
+[ext_resource type="Script" uid="uid://dvhjkv0o0jglr" path="res://revolver_shot.gd" id="1_7jslv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7jslv"]
+radius = 2.0
+
+[node name="RevolverShot" type="Area2D"]
+scale = Vector2(7.8839927, 7.8839927)
+script = ExtResource("1_7jslv")
+
+[node name="RevolverShot" type="Sprite2D" parent="."]
+position = Vector2(1.9073486e-06, 0)
+scale = Vector2(0.11510447, 0.11510447)
+texture = ExtResource("1_0fplf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_7jslv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh4g0ccqg1xcl"]
+
+[ext_resource type="Texture2D" uid="uid://dqcg1d7rsr30x" path="res://weapons/rifle/rifle.png" id="1_j33d7"]
+[ext_resource type="Script" uid="uid://bqbjo2ur8dejr" path="res://rifle.gd" id="1_jao7y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jao7y"]
+radius = 753.006
+
+[node name="Rifle" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_jao7y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jao7y")
+
+[node name="Pivot" type="Marker2D" parent="."]
+
+[node name="Rifle" type="Sprite2D" parent="Pivot"]
+position = Vector2(133, -11)
+scale = Vector2(0.59999967, 0.59999967)
+texture = ExtResource("1_j33d7")
+
+[node name="ShootingPoint" type="Marker2D" parent="Pivot/Rifle"]
+unique_name_in_owner = true
+position = Vector2(36.666683, -11.666674)
+
+[node name="FireRate" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]

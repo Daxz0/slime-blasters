@@ -52,3 +52,11 @@ func _on_pistol_select_pressed() -> void:
 func _on_cannon_select_pressed() -> void:
 	weapon = preload("res://cannon.tscn").instantiate()
 	
+
+
+func _on_revolver_select_pressed() -> void:
+	weapon = preload("res://revolver.tscn").instantiate()
+
+
+func _on_rifle_select_pressed() -> void:
+	weapon = preload("res://rifle.tscn").instantiate()

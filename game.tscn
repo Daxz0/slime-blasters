@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3u84076due2"]
+[gd_scene load_steps=12 format=3 uid="uid://b3u84076due2"]
 
 [ext_resource type="PackedScene" uid="uid://b0xfsf20ygw2w" path="res://player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://cd0nr31bvtbx7" path="res://game.gd" id="1_feb5d"]
+[ext_resource type="Texture2D" uid="uid://dvgfmy6vtvjji" path="res://characters/slime/slime_body.png" id="3_eow3j"]
+[ext_resource type="FontFile" uid="uid://bi52to056abc2" path="res://AstroKimleeRegular-aYGDa.ttf" id="3_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://weapons/pistol/pistol.png" id="3_ryrav"]
 [ext_resource type="Texture2D" uid="uid://cbwbs1123g1r5" path="res://weapons/cannon/cannon.png" id="4_eow3j"]
 [ext_resource type="Texture2D" uid="uid://p2x7rjgyeyjr" path="res://weapons/revolver/revolver.png" id="5_j5wjh"]
@@ -18,18 +20,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -220, -103, 0, 0, 0, 0, 1999, -88, 0, 0, 0, 0, 1996, 1227, 0, 0, 0, 0, -217, 1234, 0, 0, 0, 0, -217, -110)
 }
 point_count = 5
-
-[sub_resource type="FontFile" id="FontFile_e2o6t"]
-cache/0/100/0/ascent = 0.0
-cache/0/100/0/descent = 0.0
-cache/0/100/0/underline_position = 0.0
-cache/0/100/0/underline_thickness = 0.0
-cache/0/100/0/scale = 1.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -71,6 +61,17 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "Lv.0"
+
+[node name="StatTrack" type="Label" parent="Background"]
+unique_name_in_owner = true
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 114.0
+offset_bottom = 52.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Damage:
+Bullet Speed:"
 
 [node name="Player" parent="." instance=ExtResource("1_e2o6t")]
 unique_name_in_owner = true
@@ -116,6 +117,21 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 150
 text = "Game Over"
 
+[node name="PlayAgain" type="Button" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = 388.0
+offset_right = 262.0
+offset_bottom = 444.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Play Again"
+
 [node name="GameStart" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 
@@ -134,15 +150,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -303.0
-offset_top = -267.0
-offset_right = 303.0
-offset_bottom = -133.0
+offset_left = -741.0
+offset_top = -313.0
+offset_right = 795.0
+offset_bottom = -76.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontFile_e2o6t")
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("3_j5wjh")
+theme_override_font_sizes/font_size = 250
 text = "Slime Blasters"
 
 [node name="StartButton" type="Button" parent="GameStart/ColorRect"]
@@ -176,6 +192,26 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "Select Weapon"
+
+[node name="SlimeBody" type="Sprite2D" parent="GameStart/ColorRect"]
+position = Vector2(491, 627)
+texture = ExtResource("3_eow3j")
+
+[node name="SlimeBody2" type="Sprite2D" parent="GameStart/ColorRect"]
+position = Vector2(1339, 520)
+texture = ExtResource("3_eow3j")
+
+[node name="SlimeBody3" type="Sprite2D" parent="GameStart/ColorRect"]
+position = Vector2(474, 175)
+texture = ExtResource("3_eow3j")
+
+[node name="SlimeBody4" type="Sprite2D" parent="GameStart/ColorRect"]
+position = Vector2(1480, 818)
+texture = ExtResource("3_eow3j")
+
+[node name="SlimeBody5" type="Sprite2D" parent="GameStart/ColorRect"]
+position = Vector2(215, 964)
+texture = ExtResource("3_eow3j")
 
 [node name="WeaponSelector" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -294,6 +330,7 @@ text = "Return"
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="GameOver/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="GameStart/ColorRect/StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="GameStart/ColorRect/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="GameStart/ColorRect/SelectButton" to="." method="_on_button_pressed"]

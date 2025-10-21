@@ -10,8 +10,9 @@ func spawn_mob():
 
 
 	var mob_scenes = [
-		"res://fast_slime.tscn"
-		"res://basic_slime.tscn"
+		"res://fast_slime.tscn",
+		"res://basic_slime.tscn",
+		"res://thick_slime.tscn"
 	]
 
 
@@ -29,7 +30,6 @@ func set_weapon():
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_mob()
-
 
 func _on_player_health_depleted() -> void:
 	%GameOver.visible = true
@@ -52,6 +52,10 @@ func _on_start_button_pressed() -> void:
 	%GameStart.visible = false
 	set_weapon()
 
+func _on_play_again_pressed() -> void:
+	print("YES THIS WORKS?")
+	%GameOver.visible = false
+	%GameStart.visible = true
 
 func _on_pistol_select_pressed() -> void:
 	weapon = preload("res://gun.tscn").instantiate()

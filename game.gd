@@ -22,8 +22,6 @@ func _on_player_health_depleted() -> void:
     %GameOver.visible = true
     get_tree().paused = true
 
-
-<<<<<<< HEAD
 func _on_start_button_pressed() -> void:
     get_tree().paused = false
     %GameStart.visible = false

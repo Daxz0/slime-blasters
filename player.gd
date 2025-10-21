@@ -57,7 +57,5 @@ func _on_gain_xp(value) -> void:
 		%XPBar.get_node("Label").text = "Lvl.%d" % level
 		damageMul+=0.1
 
-		GAME.weapon.BULLET.SPEED *= 1.1
-
 	%XPBar.value = xp
  

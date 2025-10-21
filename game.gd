@@ -24,9 +24,6 @@ func spawn_mob():
 	new_mob.global_position = %PathFollow2D.global_position
 	add_child(new_mob)
 
-func set_weapon():
-
-	%Player.add_child(weapon)
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_mob()
@@ -39,21 +36,20 @@ func _on_player_health_depleted() -> void:
 
 func _on_select_button_pressed() -> void:
 	%WeaponSelector.visible = true
-
+# go to da weapon selector
 
 
 func _on_return_pressed() -> void:
 	%WeaponSelector.visible = false
-
+# return back to the main menus
 
 
 func _on_start_button_pressed() -> void:
 	get_tree().paused = false
 	%GameStart.visible = false
-	set_weapon()
+	%Player.add_child(weapon)
 
 func _on_play_again_pressed() -> void:
-	print("YES THIS WORKS?")
 	%GameOver.visible = false
 	%GameStart.visible = true
 

@@ -10,7 +10,7 @@ func _ready() -> void:
 const SPEED = 450.0
 var health = 25
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * SPEED
 
@@ -24,18 +24,22 @@ func take_damage(damage):
 	$Slime/AnimationPlayer.queue("walk")
 
 	if health <= 0:
-		queue_free()
+		call_deferred("die")
 
-		const SMOKE = preload("res://smoke_explosion/smoke_explosion.tscn")
-		const XP = preload("res://experience.tscn")
 
-		var smoke = SMOKE.instantiate()
-		var expa = XP.instantiate()
+func die() -> void:
+	const SMOKE = preload("res://smoke_explosion/smoke_explosion.tscn")
+	const XP = preload("res://experience.tscn")
 
-		get_parent().add_child(smoke)
-		get_parent().add_child(expa)
-		smoke.global_position = global_position
-		expa.gain_xp.connect(player._on_gain_xp)
-		expa.value = 25
-		expa.global_position = global_position
+	var smoke = SMOKE.instantiate()
+	var expa = XP.instantiate()
+
+	get_parent().add_child(smoke)
+	get_parent().add_child(expa)
+	smoke.global_position = global_position
+	expa.gain_xp.connect(player._on_gain_xp)
+	expa.value = 25
+	expa.global_position = global_position
+
+	queue_free()
 

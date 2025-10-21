@@ -40,9 +40,8 @@ func _physics_process(delta: float) -> void:
 		health_depleted.emit()
 
 
-func _on_gain_xp() -> void:
-	xp+=5
-	print("receive")
+func _on_gain_xp(value) -> void:
+	xp+=value
 
 	if xp >= 100:
 		xp-=100

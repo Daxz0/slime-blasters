@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2607b4niw0uc"
-path="res://.godot/imported/cannonball.png-7306491581e4e87c85e20e53d6c871be.ctex"
+uid="uid://brgpjilf7s2ul"
+path="res://.godot/imported/muzzle_flash.png-ec2a785bfcc4ebbdf343ab88df7ddcb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://weapons/cannon/cannonball.png"
-dest_files=["res://.godot/imported/cannonball.png-7306491581e4e87c85e20e53d6c871be.ctex"]
+source_file="res://weapons/pistol/muzzle_flash/muzzle_flash.png"
+dest_files=["res://.godot/imported/muzzle_flash.png-ec2a785bfcc4ebbdf343ab88df7ddcb2.ctex"]
 
 [params]
 

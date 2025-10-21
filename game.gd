@@ -1,6 +1,6 @@
 extends Node2D
 
-var weapon = "Pistol"
+
 
 func _on_ready():
     get_tree().paused = true
@@ -23,17 +23,11 @@ func _on_player_health_depleted() -> void:
     get_tree().paused = true
 
 
+<<<<<<< HEAD
 func _on_start_button_pressed() -> void:
     print("hi")
+=======
+func _on_button_pressed() -> void:
+>>>>>>> parent of a6479e8 (cannon)
     get_tree().paused = false
     %GameStart.visible = false
-
-
-func _on_select_button_pressed() -> void:
-    %WeaponSelector.visible = true
-
-
-
-func _on_return_pressed() -> void:
-    %WeaponSelector.visible = false
-

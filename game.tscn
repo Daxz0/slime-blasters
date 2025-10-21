@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=12 format=3 uid="uid://b3u84076due2"]
 
 [ext_resource type="PackedScene" uid="uid://b0xfsf20ygw2w" path="res://player.tscn" id="1_e2o6t"]
@@ -7,6 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cbwbs1123g1r5" path="res://weapons/cannon/cannon.png" id="4_eow3j"]
 [ext_resource type="Texture2D" uid="uid://p2x7rjgyeyjr" path="res://weapons/revolver/revolver.png" id="5_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://dqcg1d7rsr30x" path="res://weapons/rifle/rifle.png" id="6_vef74"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://b3u84076due2"]
+
+[ext_resource type="PackedScene" uid="uid://b0xfsf20ygw2w" path="res://player.tscn" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://cd0nr31bvtbx7" path="res://game.gd" id="1_feb5d"]
+[ext_resource type="PackedScene" uid="uid://bsds7cqkk1ybg" path="res://menu_slime.tscn" id="3_feb5d"]
+>>>>>>> parent of a6479e8 (cannon)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2o6t"]
 bg_color = Color(0, 0, 0, 0.79607844)
@@ -143,7 +151,7 @@ theme_override_fonts/font = SubResource("FontFile_e2o6t")
 theme_override_font_sizes/font_size = 100
 text = "Slime Blasters"
 
-[node name="StartButton" type="Button" parent="GameStart/ColorRect"]
+[node name="Button" type="Button" parent="GameStart/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -151,30 +159,18 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -175.5
-offset_top = -43.5
+offset_top = -44.5
 offset_right = 175.5
-offset_bottom = 45.5
+offset_bottom = 44.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "Start"
 
-[node name="SelectButton" type="Button" parent="GameStart/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.5
-offset_top = 59.5
-offset_right = 175.5
-offset_bottom = 148.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 40
-text = "Select Weapon"
+[node name="MenuSlime" parent="GameStart" instance=ExtResource("3_feb5d")]
+position = Vector2(531, 526)
 
+<<<<<<< HEAD
 [node name="SlimeBody" type="Sprite2D" parent="GameStart"]
 position = Vector2(559, 341)
 texture = ExtResource("3_eow3j")
@@ -297,10 +293,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Return"
+=======
+[node name="MenuSlime2" parent="GameStart" instance=ExtResource("3_feb5d")]
+position = Vector2(1559, 568)
+
+[node name="MenuSlime3" parent="GameStart" instance=ExtResource("3_feb5d")]
+position = Vector2(1035, 887)
+>>>>>>> parent of a6479e8 (cannon)
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="pressed" from="GameStart/ColorRect/StartButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="GameStart/ColorRect/SelectButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="GameStart/ColorRect/SelectButton" to="." method="_on_select_button_pressed"]
-[connection signal="pressed" from="WeaponSelector/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="GameStart/ColorRect/Button" to="." method="_on_button_pressed"]

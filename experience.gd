@@ -8,4 +8,4 @@ func _on_body_entered(body: Node2D) -> void:
 
     if body.has_node("Path2D"):
         queue_free()
-        gain_xp.emit()
+        gain_xp.emit(value)

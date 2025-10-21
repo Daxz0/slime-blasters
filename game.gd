@@ -8,9 +8,19 @@ func _on_ready():
 
 func spawn_mob():
 
-	var new_mob = preload("res://basic_slime.tscn").instantiate()
-	%PathFollow2D.progress_ratio = randf()
 
+
+	var mob_scenes = [
+		"res://fast_slime.tscn",
+		"res://basic_slime.tscn"
+	]
+
+
+	var random_index = randi() % mob_scenes.size()
+	var mob_scene = load(mob_scenes[random_index])
+	var new_mob = mob_scene.instantiate()
+
+	%PathFollow2D.progress_ratio = randf()
 	new_mob.global_position = %PathFollow2D.global_position
 	add_child(new_mob)
 

@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 4000
+@export var SPEED = 4000
 
 
 var lifetime = 0

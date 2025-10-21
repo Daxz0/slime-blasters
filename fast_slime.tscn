@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://clgysnxsmq5j6"]
+
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="1_ros8q"]
+[ext_resource type="Script" uid="uid://bbe2reu1tinle" path="res://fast_slime.gd" id="1_u4pr0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4pr0"]
+radius = 51.785755
+
+[node name="FastSlime" type="CharacterBody2D"]
+scale = Vector2(0.5599996, 0.5599996)
+script = ExtResource("1_u4pr0")
+
+[node name="Slime" parent="." instance=ExtResource("1_ros8q")]
+modulate = Color(0.75190413, 0.1404328, 0.6540646, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -28.57145)
+shape = SubResource("CircleShape2D_u4pr0")

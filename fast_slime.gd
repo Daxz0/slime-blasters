@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 
-@export var hurt_value: float = 5.0
+@export var hurt_value: float = 3.0
 @onready var player = get_node("/root/Game/Player")
 
 func _ready() -> void:
 	$Slime/AnimationPlayer.play("walk")
 
-const SPEED = 300.0
-var health = 50
+const SPEED = 450.0
+var health = 25
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
@@ -36,6 +36,6 @@ func take_damage(damage):
 		get_parent().add_child(expa)
 		smoke.global_position = global_position
 		expa.gain_xp.connect(player._on_gain_xp)
-		expa.value = 10
+		expa.value = 25
 		expa.global_position = global_position
 

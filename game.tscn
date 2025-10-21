@@ -161,15 +161,8 @@ position = Vector2(531, 526)
 [node name="MenuSlime2" parent="GameStart" instance=ExtResource("3_feb5d")]
 position = Vector2(1559, 568)
 
-[node name="MenuSlime2" parent="GameStart" instance=ExtResource("3_feb5d")]
-position = Vector2(1559, 568)
-
 [node name="MenuSlime3" parent="GameStart" instance=ExtResource("3_feb5d")]
 position = Vector2(1035, 887)
-=======
-[node name="MenuSlime3" parent="GameStart" instance=ExtResource("3_feb5d")]
-position = Vector2(1035, 887)
->>>>>>> parent of a6479e8 (cannon)
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

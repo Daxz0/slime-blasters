@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3u84076due2"]
+[gd_scene load_steps=12 format=3 uid="uid://b3u84076due2"]
 
 [ext_resource type="PackedScene" uid="uid://b0xfsf20ygw2w" path="res://player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://cd0nr31bvtbx7" path="res://game.gd" id="1_feb5d"]
+[ext_resource type="Texture2D" uid="uid://dvgfmy6vtvjji" path="res://characters/slime/slime_body.png" id="3_eow3j"]
 [ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://weapons/pistol/pistol.png" id="3_ryrav"]
 [ext_resource type="Texture2D" uid="uid://cbwbs1123g1r5" path="res://weapons/cannon/cannon.png" id="4_eow3j"]
 [ext_resource type="Texture2D" uid="uid://p2x7rjgyeyjr" path="res://weapons/revolver/revolver.png" id="5_j5wjh"]
@@ -174,6 +175,14 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "Select Weapon"
 
+[node name="SlimeBody" type="Sprite2D" parent="GameStart"]
+position = Vector2(559, 341)
+texture = ExtResource("3_eow3j")
+
+[node name="SlimeBody2" type="Sprite2D" parent="GameStart"]
+position = Vector2(1351, 346)
+texture = ExtResource("3_eow3j")
+
 [node name="WeaponSelector" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -217,7 +226,7 @@ position = Vector2(121, 127)
 scale = Vector2(2.7000005, 2.7000005)
 texture = ExtResource("3_ryrav")
 
-[node name="PistolSelect2" type="Button" parent="WeaponSelector"]
+[node name="CannonSelect" type="Button" parent="WeaponSelector"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -231,12 +240,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 
-[node name="Cannon" type="Sprite2D" parent="WeaponSelector/PistolSelect2"]
+[node name="Cannon" type="Sprite2D" parent="WeaponSelector/CannonSelect"]
 position = Vector2(120, 123)
 scale = Vector2(0.70488715, 0.7048873)
 texture = ExtResource("4_eow3j")
 
-[node name="PistolSelect3" type="Button" parent="WeaponSelector"]
+[node name="RevolverSelect" type="Button" parent="WeaponSelector"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -250,12 +259,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 
-[node name="Revolver" type="Sprite2D" parent="WeaponSelector/PistolSelect3"]
+[node name="Revolver" type="Sprite2D" parent="WeaponSelector/RevolverSelect"]
 position = Vector2(124, 121)
 scale = Vector2(0.8636363, 0.8636364)
 texture = ExtResource("5_j5wjh")
 
-[node name="PistolSelect4" type="Button" parent="WeaponSelector"]
+[node name="RifleSelect" type="Button" parent="WeaponSelector"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -269,7 +278,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 
-[node name="Rifle" type="Sprite2D" parent="WeaponSelector/PistolSelect4"]
+[node name="Rifle" type="Sprite2D" parent="WeaponSelector/RifleSelect"]
 position = Vector2(123.000046, 126)
 scale = Vector2(0.7727273, 0.77272725)
 texture = ExtResource("6_vef74")

@@ -24,6 +24,7 @@ func _on_player_health_depleted() -> void:
 
 
 func _on_start_button_pressed() -> void:
+    print("hi")
     get_tree().paused = false
     %GameStart.visible = false
 

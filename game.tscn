@@ -71,6 +71,7 @@ grow_horizontal = 2
 text = "Lv.0"
 
 [node name="Player" parent="." instance=ExtResource("1_e2o6t")]
+unique_name_in_owner = true
 position = Vector2(973, 544)
 
 [node name="Path2D" type="Path2D" parent="Player"]
@@ -217,7 +218,7 @@ position = Vector2(121, 127)
 scale = Vector2(2.7000005, 2.7000005)
 texture = ExtResource("3_ryrav")
 
-[node name="PistolSelect2" type="Button" parent="WeaponSelector"]
+[node name="CannonSelect" type="Button" parent="WeaponSelector"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -231,12 +232,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 
-[node name="Cannon" type="Sprite2D" parent="WeaponSelector/PistolSelect2"]
+[node name="Cannon" type="Sprite2D" parent="WeaponSelector/CannonSelect"]
 position = Vector2(120, 123)
 scale = Vector2(0.70488715, 0.7048873)
 texture = ExtResource("4_eow3j")
 
-[node name="PistolSelect3" type="Button" parent="WeaponSelector"]
+[node name="RevolverSelect" type="Button" parent="WeaponSelector"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -250,12 +251,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 
-[node name="Revolver" type="Sprite2D" parent="WeaponSelector/PistolSelect3"]
+[node name="Revolver" type="Sprite2D" parent="WeaponSelector/RevolverSelect"]
 position = Vector2(124, 121)
 scale = Vector2(0.8636363, 0.8636364)
 texture = ExtResource("5_j5wjh")
 
-[node name="PistolSelect4" type="Button" parent="WeaponSelector"]
+[node name="RifleSelect" type="Button" parent="WeaponSelector"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -269,7 +270,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 
-[node name="Rifle" type="Sprite2D" parent="WeaponSelector/PistolSelect4"]
+[node name="Rifle" type="Sprite2D" parent="WeaponSelector/RifleSelect"]
 position = Vector2(123.000046, 126)
 scale = Vector2(0.7727273, 0.77272725)
 texture = ExtResource("6_vef74")
@@ -292,6 +293,9 @@ text = "Return"
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="pressed" from="GameStart/ColorRect/StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GameStart/ColorRect/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="GameStart/ColorRect/SelectButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="GameStart/ColorRect/SelectButton" to="." method="_on_select_button_pressed"]
+[connection signal="pressed" from="WeaponSelector/PistolSelect" to="." method="_on_pistol_select_pressed"]
+[connection signal="pressed" from="WeaponSelector/CannonSelect" to="." method="_on_cannon_select_pressed"]
 [connection signal="pressed" from="WeaponSelector/Return" to="." method="_on_return_pressed"]

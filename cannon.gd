@@ -4,6 +4,7 @@ extends Area2D
 
 func _physics_process(delta: float) -> void:
 	var enemies = get_overlapping_bodies()
+    print(enemies)
 
 	if enemies.size() > 0:
 		var target = enemies[0]
@@ -23,4 +24,4 @@ func shoot():
 	%ShootingPoint.add_child(new_bullet)
 
 func _on_fire_rate_timeout() -> void:
-    shoot()
+	shoot()

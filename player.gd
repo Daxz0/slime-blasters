@@ -7,6 +7,8 @@ var health = 100.0
 var xp = 0.0
 var level = 0
 
+@onready var GAME = get_node("/root/Game")
+
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
@@ -38,6 +40,8 @@ func _physics_process(delta: float) -> void:
 	if health <= 0:
 		%Healthbar.value = 0
 		health_depleted.emit()
+
+
 
 
 func _on_gain_xp(value) -> void:

@@ -25,9 +25,5 @@ func _on_player_health_depleted() -> void:
 
 <<<<<<< HEAD
 func _on_start_button_pressed() -> void:
-    print("hi")
-=======
-func _on_button_pressed() -> void:
->>>>>>> parent of a6479e8 (cannon)
     get_tree().paused = false
     %GameStart.visible = false

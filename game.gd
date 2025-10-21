@@ -11,8 +11,8 @@ func spawn_mob():
 
 
 	var mob_scenes = [
-		"res://fast_slime.tscn",
-		"res://basic_slime.tscn"
+		"res://fast_slime.tscn"
+		# "res://basic_slime.tscn"
 	]
 
 

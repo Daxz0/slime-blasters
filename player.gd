@@ -32,6 +32,8 @@ func _physics_process(delta: float) -> void:
 
 	var touching_mobs = %Hurtbox.get_overlapping_bodies()
 
+
+
 	for mob in touching_mobs:
 		health -= mob.hurt_value * delta
 

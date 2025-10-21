@@ -1,7 +1,7 @@
 extends Area2D
 
 
-const SPEED = 1000
+const SPEED = 500
 
 
 var lifetime = 0
@@ -13,11 +13,11 @@ func _physics_process(delta: float) -> void:
 	position += direction * moveConstant
 	lifetime += moveConstant
 
-	if lifetime > 1200:
+	if lifetime > 5000:
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	queue_free()
 
 	if body.has_method("take_damage"):
-		body.take_damage(5)
+		body.take_damage(25)

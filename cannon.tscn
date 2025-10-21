@@ -7,18 +7,27 @@
 radius = 1126.0111
 
 [node name="Cannon" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_23j6s")
-
-[node name="Pivot" type="Marker2D" parent="."]
-
-[node name="Cannon" type="Sprite2D" parent="Pivot"]
-position = Vector2(164, -19)
-scale = Vector2(0.535, 0.535)
-texture = ExtResource("2_72ky0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_i10un")
 
-[node name="ShootingPoint" type="Marker2D" parent="CollisionShape2D"]
+[node name="Pivot" type="Marker2D" parent="."]
+
+[node name="Cannon" type="Sprite2D" parent="Pivot"]
+position = Vector2(138, -19)
+scale = Vector2(0.535, 0.535)
+texture = ExtResource("2_72ky0")
+
+[node name="ShootingPoint" type="Marker2D" parent="Pivot/Cannon"]
 unique_name_in_owner = true
-position = Vector2(190, -9)
+position = Vector2(16.822449, -35.51402)
+scale = Vector2(1.8691589, 1.8691589)
+
+[node name="FireRate" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]

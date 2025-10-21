@@ -1,6 +1,7 @@
 extends Node2D
 
-var weapon = preload("res://gun.tscn").instantiate()
+# var weapon = preload("res://gun.tscn").instantiate()
+var weapon = preload("res://cannon.tscn").instantiate()
 
 func _on_ready():
 	get_tree().paused = true
